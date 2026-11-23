@@ -103,7 +103,7 @@ jobs:
         uses: appleboy/ssh-action@v1.2.0
         env:
           EC2_IP: ${{ steps.get-ip.outputs.EC2_IP }}
-          MONGODB_URI: ${{ secrets.MONGODB_URI }}
+          MONGODB_URI: ${{ secrets.MONGO_URI || secrets.MONGODB_URI }}
           JWT_SECRET: ${{ secrets.JWT_SECRET }}
         with:
           host: ${{ steps.get-ip.outputs.EC2_IP }}
@@ -130,6 +130,7 @@ jobs:
               "NODE_ENV=production" \
               "CLIENT_URL=http://$EC2_IP" \
               "MONGODB_URI=$MONGODB_URI" \
+              "MONGO_URI=$MONGODB_URI" \
               "JWT_SECRET=$JWT_SECRET" \
               "JWT_EXPIRES_IN=1d" \
               "DELIVERY_FEE=50" \

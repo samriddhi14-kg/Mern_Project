@@ -36,7 +36,7 @@ const categoriesData = [
 
 const seedData = async () => {
   try {
-    await mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/food_ordering');
+    await mongoose.connect(process.env.MONGODB_URI || process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/food_ordering');
     console.log('[SeedData] Connected to MongoDB');
 
     console.log('[SeedData] Seeding categories...');
