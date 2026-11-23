@@ -89,29 +89,28 @@ jobs:
       - name: Wait for SSH Availability
         run: |
           IP=${{ steps.get-ip.outputs.EC2_IP }}
+          echo "Waiting for SSH to accept key on $IP..."
           for i in $(seq 1 36); do
-            if nc -zw5 "$IP" 22 2>/dev/null; then
-              echo "SSH port 22 is open!"
+            if ssh -i /tmp/server-key.pem -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ConnectTimeout=5 ubuntu@"$IP" "echo ssh_ready" 2>/dev/null; then
+              echo "✅ SSH is ready and authenticated!"
               exit 0
             fi
-            echo "Waiting for SSH on $IP... ($i/36)"
+            echo "Waiting for SSH server on $IP... ($i/36)"
             sleep 10
           done
+          echo "❌ Timed out waiting for SSH"
           exit 1
 
       - name: Deploy Code & Restart Services via SSH
-        uses: appleboy/ssh-action@v1.2.0
         env:
           EC2_IP: ${{ steps.get-ip.outputs.EC2_IP }}
           MONGODB_URI: ${{ secrets.MONGO_URI || secrets.MONGODB_URI }}
           JWT_SECRET: ${{ secrets.JWT_SECRET }}
-        with:
-          host: ${{ steps.get-ip.outputs.EC2_IP }}
-          username: ubuntu
-          key_path: /tmp/server-key.pem
-          script_stop: true
-          envs: EC2_IP,MONGODB_URI,JWT_SECRET
-          script: |
+        run: |
+          ssh -i /tmp/server-key.pem -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ubuntu@${{ steps.get-ip.outputs.EC2_IP }} \
+            "EC2_IP='$EC2_IP' MONGODB_URI='$MONGODB_URI' JWT_SECRET='$JWT_SECRET' bash -s" << 'EOF'
+            set -e
+
             echo ">>> [1/6] Waiting for cloud-init instance bootstrap..."
             sudo cloud-init status --wait || true
 
@@ -152,6 +151,7 @@ jobs:
             pm2 save
             sudo cp /var/www/app/infra/nginx.conf /etc/nginx/sites-available/app
             sudo nginx -t && sudo systemctl reload nginx
+          EOF
 
       - name: Print Live Web Application URL
         run: echo "🎉 Website is live at http://${{ steps.get-ip.outputs.EC2_IP }}"
