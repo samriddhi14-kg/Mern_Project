@@ -1,0 +1,111 @@
+.auth-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 1.25rem 6rem 1.25rem;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 440px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 2.75rem 2.25rem;
+  box-shadow: var(--shadow-lg);
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.auth-badge {
+  display: inline-block;
+  background-color: rgba(240, 90, 40, 0.12);
+  color: var(--color-accent);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 0.75rem;
+}
+
+.auth-title {
+  font-size: 1.85rem;
+  font-weight: 800;
+  margin-bottom: 0.4rem;
+}
+
+.auth-info-banner {
+  background-color: rgba(240, 90, 40, 0.12);
+  border: 1px solid rgba(240, 90, 40, 0.35);
+  color: var(--color-text);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.auth-subtitle {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-submit-btn {
+  background-color: var(--color-accent);
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.85rem;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  transition: background-color var(--transition-fast);
+}
+
+.auth-submit-btn:hover:not(:disabled) {
+  background-color: var(--color-accent-hover);
+}
+
+.auth-footer {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.auth-switch-link {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.auth-switch-link:hover {
+  text-decoration: underline;
+}
+
+.admin-login-hint {
+  margin-top: 1rem;
+  font-size: 0.8rem;
+}
+
+.admin-login-hint a {
+  color: var(--color-text-muted);
+}
+
+.admin-login-hint a:hover {
+  color: var(--color-text);
+}

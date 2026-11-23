@@ -1,0 +1,139 @@
+.admin-foods-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.admin-primary-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: var(--color-accent);
+  color: white;
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 0.65rem 1.25rem;
+  border-radius: var(--radius-md);
+  transition: background-color var(--transition-fast);
+}
+
+.admin-primary-btn:hover {
+  background-color: var(--color-accent-hover);
+}
+
+.food-table-cell {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.food-table-thumb {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.food-cell-name {
+  display: block;
+  font-size: 0.95rem;
+}
+
+.food-cell-desc {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  max-width: 320px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.avail-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+}
+
+.avail-toggle-btn.available {
+  background-color: rgba(62, 155, 104, 0.15);
+  color: var(--color-success);
+}
+
+.avail-toggle-btn.unavailable {
+  background-color: rgba(217, 74, 66, 0.15);
+  color: var(--color-danger);
+}
+
+.table-actions-group {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.icon-action-btn {
+  background-color: var(--color-surface-raised);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-action-btn.edit:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.icon-action-btn.delete:hover {
+  color: var(--color-danger);
+  border-color: var(--color-danger);
+}
+
+.food-modal {
+  max-width: 540px;
+}
+
+.form-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.checkbox-row {
+  margin-top: 0.5rem;
+}
+
+.checkbox-row label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.checkbox-row input {
+  width: auto;
+  accent-color: var(--color-accent);
+}
+
+.modal-confirm-btn {
+  background-color: var(--color-accent);
+  color: white;
+  font-weight: 700;
+  font-size: 0.88rem;
+  padding: 0.65rem 1.25rem;
+  border-radius: var(--radius-md);
+}
+
+.modal-confirm-btn:hover {
+  background-color: var(--color-accent-hover);
+}

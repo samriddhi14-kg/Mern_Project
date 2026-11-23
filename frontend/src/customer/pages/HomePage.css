@@ -1,0 +1,205 @@
+.home-page {
+  padding-bottom: 5rem;
+}
+
+.hero-banner {
+  background: radial-gradient(circle at 80% 20%, rgba(240, 90, 40, 0.12), transparent 50%),
+              radial-gradient(circle at 10% 80%, rgba(37, 33, 30, 0.8), transparent 40%),
+              var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  padding: 4.5rem 0 3.5rem 0;
+  text-align: center;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 800px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgba(240, 90, 40, 0.1);
+  border: 1px solid rgba(240, 90, 40, 0.25);
+  color: var(--color-accent);
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+}
+
+.hero-title {
+  font-size: 3.2rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+}
+
+.accent-gradient {
+  color: var(--color-accent);
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  max-width: 600px;
+  margin-bottom: 2.25rem;
+}
+
+.hero-search-wrap {
+  width: 100%;
+  max-width: 640px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 1.25rem;
+  color: var(--color-text-muted);
+  pointer-events: none;
+}
+
+.hero-search-input {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3.25rem;
+  font-size: 1rem;
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-md);
+  color: var(--color-text);
+  transition: all var(--transition-fast);
+}
+
+.hero-search-input:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(240, 90, 40, 0.25);
+}
+
+.clear-search-btn {
+  position: absolute;
+  right: 1.25rem;
+  background: transparent;
+  color: var(--color-text-muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.clear-search-btn:hover {
+  color: var(--color-accent);
+}
+
+.menu-section {
+  padding-top: 3.5rem;
+}
+
+.menu-header {
+  margin-bottom: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.section-title {
+  font-size: 1.85rem;
+  font-weight: 800;
+  margin-bottom: 0.35rem;
+}
+
+.section-subtitle {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+.category-chips {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.cat-chip {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.55rem 1.15rem;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+}
+
+.cat-chip:hover {
+  border-color: var(--color-border-light);
+  color: var(--color-text);
+}
+
+.cat-chip.active {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  color: white;
+}
+
+.food-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.75rem;
+}
+
+.empty-menu {
+  text-align: center;
+  padding: 4rem 1rem;
+  background-color: var(--color-surface);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-lg);
+  margin-top: 1rem;
+}
+
+.empty-icon {
+  color: var(--color-text-muted);
+  margin-bottom: 1rem;
+}
+
+.empty-menu h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.empty-menu p {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 1.25rem;
+}
+
+.reset-filter-btn {
+  background-color: var(--color-surface-raised);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.reset-filter-btn:hover {
+  background-color: var(--color-accent);
+  color: white;
+}
+
+@media (max-width: 640px) {
+  .hero-title {
+    font-size: 2.2rem;
+  }
+  .food-grid {
+    grid-template-columns: 1fr;
+  }
+}

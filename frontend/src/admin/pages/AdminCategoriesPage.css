@@ -1,0 +1,23 @@
+.admin-categories-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.cat-status-pill {
+  display: inline-block;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.cat-status-pill.active {
+  background-color: rgba(62, 155, 104, 0.15);
+  color: var(--color-success);
+}
+
+.cat-status-pill.inactive {
+  background-color: rgba(217, 74, 66, 0.15);
+  color: var(--color-danger);
+}
